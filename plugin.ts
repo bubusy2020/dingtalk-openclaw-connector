@@ -1407,9 +1407,9 @@ interface ExtractedMessage {
   downloadCodes: string[];
   /** 文件名列表（与 downloadCodes 对应，用于文件类型消息） */
   fileNames: string[];
-  /** 艾特的钉钉用户ID列表 */
+  /** at的钉钉用户ID列表 */
   atDingtalkIds: string[];
-  /** 艾特的手机号列表 */
+  /** at的手机号列表 */
   atMobiles: string[];
 }
 
