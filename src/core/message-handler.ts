@@ -900,12 +900,12 @@ export async function handleDingTalkMessage(params: HandleMessageParams): Promis
         // 检查 peer
         if (match.peer) {
           // 检查 peer.kind
-          if (match.peer.kind && match.peer.kind !== chatType) {
+          if (match.peer.kind && match.peer.kind !== sessionContext.chatType) {
             continue;
           }
           
-          // 检查 peer.id（支持通配符 *）
-          if (match.peer.id && match.peer.id !== '*' && match.peer.id !== peerId) {
+          // ✅ 使用 sessionContext.peerId 进行匹配（支持通配符 *）
+          if (match.peer.id && match.peer.id !== '*' && match.peer.id !== sessionContext.peerId) {
             continue;
           }
         }
@@ -925,13 +925,14 @@ export async function handleDingTalkMessage(params: HandleMessageParams): Promis
     
     // ✅ 使用 SDK 标准方法构建 sessionKey，符合 OpenClaw 规范
     // 格式：agent:{agentId}:{channel}:{peerKind}:{peerId}
+    // ✅ 修复：使用 sessionContext.peerId，确保会话隔离配置生效
     const sessionKey = core.channel.routing.buildAgentSessionKey({
       agentId: matchedAgentId,
       channel: 'dingtalk',  // ✅ 使用 'dingtalk' 而不是 'dingtalk-connector'
       accountId: accountId,
       peer: {
-        kind: isDirect ? 'direct' : 'group',
-        id: peerId,
+        kind: sessionContext.chatType,  // ✅ 使用 sessionContext.chatType
+        id: sessionContext.peerId,      // ✅ 使用 sessionContext.peerId（包含会话隔离逻辑）
       },
     });
     log?.info?.(`路由解析完成: agentId=${matchedAgentId}, sessionKey=${sessionKey}, matchedBy=${matchedBy}`);
