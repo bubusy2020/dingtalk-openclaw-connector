@@ -549,6 +549,22 @@ export async function monitorSingleAccount(
     } catch (error: any) {
       cleanup(); // 连接失败时清理资源
 
+      // 处理 400 错误（请求参数错误）
+      if (error.response?.status === 400 || error.message?.includes("400")) {
+        throw new Error(
+          `[DingTalk][${accountId}] Bad Request (400):\n` +
+            `  - clientId or clientSecret format is invalid\n` +
+            `  - clientId: ${clientIdStr} (type: ${typeof account.clientId})\n` +
+            `  - clientSecret: ${clientSecretStr.substring(0, 8)}... (type: ${typeof account.clientSecret})\n` +
+            `  - Common issues:\n` +
+            `    1. clientId/clientSecret must be strings, not numbers\n` +
+            `    2. Remove any quotes or special characters\n` +
+            `    3. Ensure credentials are from the correct DingTalk app\n` +
+            `  - Error details: ${error.message}\n` +
+            `  - Response data: ${JSON.stringify(error.response?.data || {})}`,
+        );
+      }
+
       // 处理 401 认证错误
       if (error.response?.status === 401 || error.message?.includes("401")) {
         throw new Error(
