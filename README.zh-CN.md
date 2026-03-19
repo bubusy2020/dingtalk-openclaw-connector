@@ -145,13 +145,6 @@ openclaw channels add
 
 > 💡 **提示**：如果文件已有内容，在 `channels` 节点下添加 `dingtalk-connector` 部分即可。
 
-#### 方式 C：环境变量
-
-```bash
-export DINGTALK_CLIENT_ID="dingxxxxxxxxx"
-export DINGTALK_CLIENT_SECRET="your_app_secret"
-```
-
 ---
 
 ### 步骤 4：重启并测试
@@ -199,8 +192,8 @@ openclaw logs --follow
 
 | 选项 | 环境变量 | 说明 |
 |------|---------|------|
-| `clientId` | `DINGTALK_CLIENT_ID` | 钉钉 AppKey |
-| `clientSecret` | `DINGTALK_CLIENT_SECRET` | 钉钉 AppSecret |
+| `clientId` | — | 钉钉 AppKey |
+| `clientSecret` | — | 钉钉 AppSecret |
 | `gatewayToken` | `OPENCLAW_GATEWAY_TOKEN` | Gateway 认证 token（可选） |
 | `gatewayPassword` | — | Gateway 认证密码（可选，token 和 password 二选一） |
 

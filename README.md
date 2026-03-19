@@ -153,13 +153,6 @@ Edit the configuration file:
 
 > 💡 **Tip**: If the file already has content, add the `dingtalk-connector` section under the `channels` node.
 
-#### Option C: Environment Variables
-
-```bash
-export DINGTALK_CLIENT_ID="dingxxxxxxxxx"
-export DINGTALK_CLIENT_SECRET="your_app_secret"
-```
-
 ---
 
 ### Step 4: Restart and Test
@@ -207,8 +200,8 @@ openclaw logs --follow
 
 | Option | Environment Variable | Description |
 |--------|---------------------|-------------|
-| `clientId` | `DINGTALK_CLIENT_ID` | DingTalk AppKey |
-| `clientSecret` | `DINGTALK_CLIENT_SECRET` | DingTalk AppSecret |
+| `clientId` | — | DingTalk AppKey |
+| `clientSecret` | — | DingTalk AppSecret |
 | `gatewayToken` | `OPENCLAW_GATEWAY_TOKEN` | Gateway auth token (optional) |
 | `gatewayPassword` | — | Gateway auth password (optional, use token OR password) |
 
