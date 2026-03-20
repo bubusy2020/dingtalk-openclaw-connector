@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.0] - 2026-03-20
+
+### 重构 / Refactoring
+- ✅ **业务逻辑分层重构** - 对项目结构进行重构，采用业务逻辑分层设计，明确职责边界，降低模块耦合并提升可维护性  
+  **Business-logic layered refactor** - Reworked project architecture with layered business logic design, clarifying responsibilities, reducing coupling, and improving maintainability
+- ✅ **OpenClaw 对接方式升级** - 从 OpenClaw HTTP 对接迁移为 OpenClaw SDK，统一调用链路并增强集成稳定性  
+  **OpenClaw integration upgrade** - Migrated from OpenClaw HTTP integration to OpenClaw SDK for a unified invocation flow and better integration stability
+
+### 改进 / Improvements
+- ✅ **IM 交互体验优化** - 优化 IM 场景下的部分交互细节，提升消息处理与反馈体验  
+  **IM interaction optimization** - Improved several interaction details in IM scenarios to provide smoother message handling and feedback
+- ✅ **README 重写与配置简化** - 重写 README 文档，简化配置教程，降低接入门槛并提升上手效率  
+  **README rewrite & simpler setup** - Rewrote README and simplified setup guidance to reduce onboarding complexity and speed up adoption
+
+### 修复 / Fixes
+- 🐛 **dingtalk-stream 断连问题修复** - 修复 dingtalk-stream 相关的部分断连场景，增强长连接稳定性与恢复能力  
+  **dingtalk-stream disconnect fixes** - Fixed several dingtalk-stream related disconnection scenarios, improving long-connection stability and recovery
+
 ## [0.7.10] - 2026-03-16
 
 ### 新增 / Added
