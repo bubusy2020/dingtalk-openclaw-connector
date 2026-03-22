@@ -1020,7 +1020,7 @@ export async function handleDingTalkMessageInternal(params: HandleMessageParams)
       AccountId: accountId,
       ChatType: chatType,
       GroupSubject: isDirect ? undefined : data.conversationId,
-      SenderName: senderId,
+      SenderName: senderName,
       SenderId: senderId,
       Provider: "dingtalk" as const,
       Surface: "dingtalk" as const,
